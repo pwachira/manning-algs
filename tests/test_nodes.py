@@ -11,16 +11,16 @@ def test_binary():
     d = a.add_right(BinaryNode("D"))
     e = b.add_right(BinaryNode("E"))
     f = e.add_left(BinaryNode("F"))
-    for node in [root, a, b, c, d, e, f]:
-        print(node)
 
-    assert root.__str__() == "Root: A B"
-    assert a.__str__() == "A: C D"
-    assert b.__str__() == "B: None E"
-    assert c.__str__() == "C: None None"
-    assert d.__str__() == "D: None None"
-    assert e.__str__() == "E: F None"
-    assert f.__str__() == "F: None None"
+    tree = root.__str__()
+    print(tree)
+    assert (
+        tree
+        == "Root:\n  A:\n    C:\n    D:\n  B:\n    None\n    E:\n      F:\n      None\n"
+    )
+    a_tree = a.__str__()
+    print(a_tree)
+    assert a_tree == "A:\n  C:\n  D:\n"
 
 
 def test_nnary():
