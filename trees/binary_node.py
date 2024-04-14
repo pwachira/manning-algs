@@ -3,9 +3,13 @@ class BinaryNode:
     INDENT = "  "
 
     def __init__(self, value: str) -> None:
-        self.value = value
+        self._value = value
         self.right: BinaryNode = None
         self.left: BinaryNode = None
+
+    @property
+    def value(self):
+        return self._value
 
     def __str__(self, level: int = 0) -> str:
         return self.recurse(node=self, level=level)
